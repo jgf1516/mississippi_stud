@@ -37,8 +37,5 @@ class Card:
             if Card.index_to_rank[r]==self.rank:
                 return r
 
-#some testing:
-#card1=Card(40)
-#print(card1)
-#print(card1.card_to_index())
+
 

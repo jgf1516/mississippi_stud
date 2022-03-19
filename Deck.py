@@ -87,11 +87,7 @@ class Deck:
 
         return 0
         
-#
     
+#
 
-#Some testing below:
-d=Deck(0,1,2,3,4)
-deck = d.shuffled_deck()
-print(deck)
-print(Deck.hands[Deck.find_hand(deck)])
+
