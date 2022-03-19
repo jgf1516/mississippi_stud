@@ -31,6 +31,12 @@ class Card:
                 si=s
                 break
         return int(4 * ri + si)
+
+    def rank_to_rank_index(self):
+        for r in Card.index_to_rank:
+            if Card.index_to_rank[r]==self.rank:
+                return r
+
 #some testing:
 #card1=Card(40)
 #print(card1)
