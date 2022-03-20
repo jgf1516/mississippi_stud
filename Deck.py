@@ -5,6 +5,7 @@ class Deck:
 #This Deck class is specifically designed to create a 5 card poker hand for mississippi stud
 #This could be reused in other card games
 #I might later update this to make it more generalized as it could be useful in other card games
+#For future projects I may remake this with the cards stored in an array, but this works well for 5 card poker hands
 
     hands={0: "No hand", 1: "6's through T's", 2: "Jacks or better", 3: "Two pair", 4: "Three of a kind", 5: "Straight", 6: "Flush", 7: "Full house", 8: "Four of a kind", 9: "Straight flush", 10: "Royal flush"}
     def __init__(self, ind1, ind2, ind3, ind4, ind5):
