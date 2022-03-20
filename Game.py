@@ -36,7 +36,7 @@ class Game:
 
         elif menu_choice.upper()=="C":
             #adjust wager size
-            self.adjust_wager_size()
+            self.wager_size=self.adjust_wager_size()
 
         elif menu_choice.upper()=="H":
             #how to play
