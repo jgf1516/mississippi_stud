@@ -118,11 +118,12 @@ class Game:
         bet=self.get_bet()
         if bet==0:
             print("You fold")
-            return
+            return 0
         else:
             wager_mult+=bet
             self.balance-=bet*self.wager_size
             self.view_balance()
+            return bet
 
 
     def play_round(self):
@@ -137,13 +138,19 @@ class Game:
         deck=deck.shuffled_deck()
 
         #First 2 cards
-        self.street(deck, 2, wager_mult)
+        fold=self.street(deck, 2, wager_mult)
+        if fold==0:
+            return
         
         #3rd card
-        self.street(deck, 3, wager_mult)
+        fold=self.street(deck, 3, wager_mult)
+        if fold==0:
+            return
 
         #4th card
-        self.street(deck, 4, wager_mult)
+        fold=self.street(deck, 4, wager_mult)
+        if fold==0:
+            return
 
         #Reveal
         deck.show_cards(5)
