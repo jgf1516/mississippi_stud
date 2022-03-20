@@ -26,6 +26,21 @@ class Deck:
     def __repr__(self):
         return self.card1.__repr__()+self.card2.__repr__()+self.card3.__repr__()+self.card4.__repr__()+self.card5.__repr__()
 
+    def show_cards(self, number):
+        out=""
+        if number>=1:
+            out+=self.card1.__repr__()
+        if number>=2:
+            out+=self.card2.__repr__()
+        if number>=3:
+            out+=self.card3.__repr__()
+        if number>=4:
+            out+=self.card4.__repr__()
+        if number>=5:
+            out+=self.card5.__repr__()
+        print(out)
+        return out
+
     def ordered_deck(self):
         indices=[self.card1.card_to_index(), self.card2.card_to_index(), self.card3.card_to_index(), self.card4.card_to_index(), self.card5.card_to_index()]
         ordered_indices=sorted(indices)
