@@ -14,7 +14,7 @@ class Game:
 
     def help_menu(self):
         print("Menu: ")
-        print("\tW: Make a Wager")
+        print("\tENTER: Make a Wager")
         print("\tC: Adjust Wager Size")
         print("\tB: View Current Balance")
         print("\tP: View Payout Table")
@@ -26,7 +26,7 @@ class Game:
     def accept_menu_choice(self):
         self.help_menu()
         menu_choice=input("Make selection: ")
-        if menu_choice.upper()=="W":
+        if menu_choice.upper()=="":
             #This is where the game will be played
             self.play_round()
 
