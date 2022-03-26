@@ -36,7 +36,7 @@ class Game:
 
         elif menu_choice.upper()=="C":
             #adjust wager size
-            self.wager_size=self.adjust_wager_size()
+            self.adjust_wager_size()
 
         elif menu_choice.upper()=="H":
             #how to play
@@ -113,19 +113,6 @@ class Game:
         else:
             return 0
 
-    def street(self, deck, number, wager_mult):
-        deck.show_cards(number)
-        bet=self.get_bet()
-        if bet==0:
-            print("You fold")
-            return 0
-        else:
-            wager_mult+=bet
-            self.balance-=bet*self.wager_size
-            self.view_balance()
-            return bet
-
-
     def play_round(self):
         #This will be where the logic of the game is defined
         if self.balance<100:
@@ -138,19 +125,37 @@ class Game:
         deck=deck.shuffled_deck()
 
         #First 2 cards
-        fold=self.street(deck, 2, wager_mult)
-        if fold==0:
+        deck.show_cards(2)
+        bet=self.get_bet()
+        if bet==0:
+            print("You fold")
             return
-        
+        else:
+            wager_mult+=bet
+            self.balance-=bet*self.wager_size
+            self.view_balance()
+
         #3rd card
-        fold=self.street(deck, 3, wager_mult)
-        if fold==0:
+        deck.show_cards(3)
+        bet=self.get_bet()
+        if bet==0:
+            print("You fold")
             return
+        else:
+            wager_mult+=bet
+            self.balance-=bet*self.wager_size
+            self.view_balance()
 
         #4th card
-        fold=self.street(deck, 4, wager_mult)
-        if fold==0:
+        deck.show_cards(4)
+        bet=self.get_bet()
+        if bet==0:
+            print("You fold")
             return
+        else:
+            wager_mult+=bet
+            self.balance-=bet*self.wager_size
+            self.view_balance()
 
         #Reveal
         deck.show_cards(5)
@@ -159,10 +164,3 @@ class Game:
         print("You have: "+ Deck.hands[deck.find_hand()])
         print("You've won ${amount}".format(amount=winnings))
         self.view_balance()
-
-            
-
-
-
-
-
